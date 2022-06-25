@@ -21,6 +21,7 @@ This is an example NER service using Spacy and was built to show Data Scientists
 - Using `opencv-python-headless` fixed error on docker about not file found for opencv
 - The image window for opencv only work locally and then it never close
   - The image window does not want to work on docker.
+- To select intepreter on vs code https://user-images.githubusercontent.com/18028544/175776994-36b20dda-3a4b-42dc-9df3-35aa106968e0.mov
 
 [The YouTube video for the run through can be found here.](https://youtu.be/Maj9v-Ev7-4)
 
