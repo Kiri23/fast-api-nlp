@@ -384,6 +384,14 @@ python-versions = "*"
 six = ">=1.4.0"
 
 [[package]]
+name = "python-poppler"
+version = "0.3.0"
+description = "A Python binding to poppler-cpp"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "pytz"
 version = "2022.1"
 description = "World timezone definitions, modern and historical"
@@ -691,7 +699,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "f4a966cb9fe4051ddb152b089984943e18d155ee3ec84656969a84a21184b7e3"
+content-hash = "ccc94c688d9bfce027e6e8d25286b2588b31994a7961ec69362f78da2aa2da62"
 
 [metadata.files]
 anyio = [
@@ -1094,6 +1102,9 @@ python-dateutil = [
 ]
 python-multipart = [
     {file = "python-multipart-0.0.5.tar.gz", hash = "sha256:f7bb5f611fc600d15fa47b3974c8aa16e93724513b49b5f95c81e6624c83fa43"},
+]
+python-poppler = [
+    {file = "python-poppler-0.3.0.tar.gz", hash = "sha256:8b6a157e51cbb4c08353a21ca3f6f396558759cdfb0b80071379ad89d5f7c533"},
 ]
 pytz = [
     {file = "pytz-2022.1-py2.py3-none-any.whl", hash = "sha256:e68985985296d9a66a881eb3193b0906246245294a881e7c8afe623866ac6a5c"},

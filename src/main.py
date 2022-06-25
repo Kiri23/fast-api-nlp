@@ -11,15 +11,17 @@ app = FastAPI()
 
 nlp = spacy.load("en_core_web_sm")
 
+# test code cv2
+#  nparr = np.fromstring(contents, np.uint8)
+# img = cv.imdecode(nparr, cv.IMREAD_COLOR)
+# cv.imshow('img',img)
+# cv.waitKey(0)
 
 @app.post("/uploadfile/")
-async def create_upload_file(file: UploadFile):
-    contents = await file.read()
-    nparr = np.fromstring(contents, np.uint8)
-    img = cv.imdecode(nparr, cv.IMREAD_COLOR)
-    cv.imshow('img',img)
-    cv.waitKey(0)
-    return {"filename": file.filename, "imgShape": img.shape}
+async def create_upload_file(file: UploadFile = File(...)):
+    with open(f"{file.filename}", "wb+") as file_object:
+        file_object.write(file.file.read())
+    return {"filename": file.filename}
 
 @app.post('/ner-service')
 async def get_ner(payload: Payload):

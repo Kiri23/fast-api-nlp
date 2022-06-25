@@ -2,15 +2,23 @@
 
 This is an example NER service using Spacy and was built to show Data Scientists & Analysts a quick way to turn their models into deployable services.
 
-## How to run
+## Requirements
 
 - download poetry `brew install poetry`
-- `poetry init` to initialize a project
 - download [poppler](https://macappstore.org/poppler/) for mac to process PDF `brew install poppler`. Other [Os install ref](https://pdf2image.readthedocs.io/en/latest/installation.html)
+
   - Test if the install run sucessfully by running `pdftoppm -h`
   - `pdftoppm -png fargo.pdf fargo` - This will convert pdf pages to images
   - Available [tools](https://www.xpdfreader.com/about.html) from poppler:
     - some examples are pdfimages, pdftotext, pdftohtml, pdfinfo, pdftopng, pdffonts.
+
+  ## Opencv
+
+  - Read the docker file to know what libraries were installed to make opencv work
+
+## How to run
+
+- `poetry init` to initialize a project
 - `poetry shell` - This will initiate a venv enviroment
 - uvicorn src.main:app --reload
   or
