@@ -1,7 +1,9 @@
 from fastapi import FastAPI, File, UploadFile
 from typing import List
 import spacy
-
+import numpy as np
+import cv2 as cv
+print(cv.__version__)
 from .models import Payload, Entities
 
 
@@ -12,7 +14,12 @@ nlp = spacy.load("en_core_web_sm")
 
 @app.post("/uploadfile/")
 async def create_upload_file(file: UploadFile):
-    return {"filename": file.filename}
+    contents = await file.read()
+    nparr = np.fromstring(contents, np.uint8)
+    img = cv.imdecode(nparr, cv.IMREAD_COLOR)
+    cv.imshow('img',img)
+    cv.waitKey(0)
+    return {"filename": file.filename, "imgShape": img.shape}
 
 @app.post('/ner-service')
 async def get_ner(payload: Payload):
