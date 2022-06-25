@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, File, UploadFile
 from typing import List
 import spacy
 
@@ -9,6 +9,10 @@ app = FastAPI()
 
 nlp = spacy.load("en_core_web_sm")
 
+
+@app.post("/uploadfile/")
+async def create_upload_file(file: UploadFile):
+    return {"filename": file.filename}
 
 @app.post('/ner-service')
 async def get_ner(payload: Payload):
