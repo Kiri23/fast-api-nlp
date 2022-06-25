@@ -1,4 +1,5 @@
 from fastapi import FastAPI, File, UploadFile
+from fastapi.responses import FileResponse
 from typing import List
 import spacy
 import numpy as np
@@ -21,7 +22,7 @@ nlp = spacy.load("en_core_web_sm")
 async def create_upload_file(file: UploadFile = File(...)):
     with open(f"{file.filename}", "wb+") as file_object:
         file_object.write(file.file.read())
-    return {"filename": file.filename}
+    return FileResponse("img/fargo-1.png")
 
 @app.post('/ner-service')
 async def get_ner(payload: Payload):
