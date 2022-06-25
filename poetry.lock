@@ -102,6 +102,7 @@ spacy = ">=3.3.0.dev0,<3.4.0"
 [package.source]
 type = "url"
 url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.3.0/en_core_web_md-3.3.0.tar.gz"
+
 [[package]]
 name = "en-core-web-sm"
 version = "3.3.0"
@@ -116,6 +117,7 @@ spacy = ">=3.3.0.dev0,<3.4.0"
 [package.source]
 type = "url"
 url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.3.0/en_core_web_sm-3.3.0.tar.gz"
+
 [[package]]
 name = "fastapi"
 version = "0.78.0"
@@ -678,10 +680,18 @@ category = "main"
 optional = false
 python-versions = "*"
 
+[[package]]
+name = "yapf"
+version = "0.32.0"
+description = "A formatter for Python code."
+category = "dev"
+optional = false
+python-versions = "*"
+
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "7294962334c6a30182a10c5f6a4951d0f3efded4cabea954d06ec37ce0ce63ea"
+content-hash = "f4a966cb9fe4051ddb152b089984943e18d155ee3ec84656969a84a21184b7e3"
 
 [metadata.files]
 anyio = [
@@ -1211,4 +1221,8 @@ uvicorn = [
 wasabi = [
     {file = "wasabi-0.9.1-py3-none-any.whl", hash = "sha256:217edcb2850993c7931399e7419afccde13539d589e333bc85f9053cf0bb1772"},
     {file = "wasabi-0.9.1.tar.gz", hash = "sha256:ada6f13e9b70ef26bf95fad0febdfdebe2005e29a08ad58f4bbae383a97298cf"},
+]
+yapf = [
+    {file = "yapf-0.32.0-py2.py3-none-any.whl", hash = "sha256:8fea849025584e486fd06d6ba2bed717f396080fd3cc236ba10cb97c4c51cf32"},
+    {file = "yapf-0.32.0.tar.gz", hash = "sha256:a3f5085d37ef7e3e004c4ba9f9b3e40c54ff1901cd111f05145ae313a7c67d1b"},
 ]

@@ -5,6 +5,10 @@ This is an example NER service using Spacy and was built to show Data Scientists
 ## How to run
 
 - download poetry `brew install poetry`
+- `poetry init` to initialize a project
+- download [poppler](https://macappstore.org/poppler/) for mac to process PDF `brew install poppler`. Other [Os install ref](https://pdf2image.readthedocs.io/en/latest/installation.html)
+  - Test if the install run sucessfully by running `pdftoppm -h`
+  - `pdftoppm -png fargo.pdf fargo` - This will convert pdf pages to images
 - `poetry shell` - This will initiate a venv enviroment
 - uvicorn src.main:app --reload
   or
