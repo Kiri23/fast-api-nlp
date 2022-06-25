@@ -8,7 +8,7 @@ This is an example NER service using Spacy and was built to show Data Scientists
 - `poetry shell` - This will initiate a venv enviroment
 - uvicorn src.main:app --reload
   or
-- bash `runDocker.sh` to run the docker command
+- `bash runDocker.sh` to run the docker command
 
 ### with docker
 
