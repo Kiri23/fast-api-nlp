@@ -1,8 +1,8 @@
 from fastapi import FastAPI, File, UploadFile
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, HTMLResponse
 from typing import List
 import spacy
-import numpy as np
+from spacy import displacy
 import cv2 as cv
 print(cv.__version__)
 from .models import Payload, Entities
@@ -24,6 +24,7 @@ async def create_upload_file(file: UploadFile = File(...)):
         file_object.write(file.file.read())
     return FileResponse("img/fargo-1.png")
 
+# https://codebeautify.org/text-minifier
 @app.post('/ner-service')
 async def get_ner(payload: Payload):
     tokenize_content: List[spacy.tokens.doc.Doc] = [
@@ -36,3 +37,11 @@ async def get_ner(payload: Payload):
         Entities(post_url=post.post_url, entities=ents)
         for post, ents in zip(payload.data, document_enities)
     ]
+
+@app.post('/ner-service-html',  response_class=HTMLResponse)
+async def get_ner(payload: Payload):
+    tokenize_content: List[spacy.tokens.doc.Doc] = [
+        nlp(content.content) for content in payload.data
+    ]
+    html = displacy.render(tokenize_content, style="ent", page=True)
+    return HTMLResponse(content=html, status_code=200)
